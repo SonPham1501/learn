@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:learn/data/result_model/result_get_comment.dart';
+import 'package:learn/data/result_model/result_get_photo.dart';
 
 @immutable
 abstract class CommentState extends Equatable {
@@ -11,7 +12,7 @@ abstract class CommentState extends Equatable {
 class CommentFetchInitial extends CommentState {}
 
 class CommentFetchSuccess extends CommentState {
-  final List<ResultGetComment> comments;
+  final List<ResultGetPhotos> comments;
   final bool hasListEnd;
 
   CommentFetchSuccess({required this.comments, this.hasListEnd = false});
@@ -19,7 +20,7 @@ class CommentFetchSuccess extends CommentState {
   @override
   List<Object?> get props => [comments, hasListEnd];
 
-  CommentFetchSuccess copyWith({List<ResultGetComment>? comments, bool? hasListEnd}) => CommentFetchSuccess(
+  CommentFetchSuccess copyWith({List<ResultGetPhotos>? comments, bool? hasListEnd}) => CommentFetchSuccess(
         comments: comments ?? this.comments,
         hasListEnd: hasListEnd ?? this.hasListEnd,
       );

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learn/data/result_model/result_get_comment.dart';
+import 'package:learn/data/result_model/result_get_photo.dart';
 import 'package:learn/modules/home/bloc/comment_bloc.dart';
 import 'package:learn/modules/home/bloc/comment_event.dart';
 import 'package:learn/modules/home/bloc/comment_state.dart';
@@ -26,11 +27,11 @@ class _HomeScreenState extends State<HomeScreen> {
               return ListView.builder(
                   itemCount: state.comments.length,
                   itemBuilder: (context, index) {
-                    ResultGetComment comment = state.comments[index];
+                    ResultGetPhotos comment = state.comments[index];
                     return ListTile(
                       leading: Text(comment.id!.toString()),
-                      title: Text(comment.email!),
-                      subtitle: Text(comment.body!),
+                      title: Text(comment.title!),
+                      subtitle: Text(comment.url!),
                       isThreeLine: true,
                     );
                   });

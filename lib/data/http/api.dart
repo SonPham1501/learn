@@ -8,6 +8,7 @@ final POST_METHOD = Options(method: 'post');
 class HttpManager {
   final Dio _dio = Dio();
 
+
   Future<RequestResponse> fetch(String url, params, Options? option,
       {Map<String, dynamic>? header, bool noTip = false, bool isFormData = false}) async {
     Map<String, dynamic> headers = {};

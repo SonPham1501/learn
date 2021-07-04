@@ -1,15 +1,19 @@
+import 'dart:convert';
 
+List<ResultGetPhotos> listResultGetPhotoFromJson(String str) => List<ResultGetPhotos>.from(json.decode(str).map((e) => ResultGetPhotos.fromJson(e)));
 
-class ResultGetPhoto {
+String listResultGetPhotoToJson(List<ResultGetPhotos> data) => json.encode(data.map((e) => e.toJson()).toList());
+
+class ResultGetPhotos {
   int? albumId;
   int? id;
   String? title;
   String? url;
   String? thumbnailUrl;
 
-  ResultGetPhoto({this.albumId, this.id, this.title, this.url, this.thumbnailUrl});
+  ResultGetPhotos({this.albumId, this.id, this.title, this.url, this.thumbnailUrl});
 
-  ResultGetPhoto.fromJson(Map<String, dynamic> json) {
+  ResultGetPhotos.fromJson(Map<String, dynamic> json) {
     this.albumId = json["albumId"];
     this.id = json["id"];
     this.title = json["title"];

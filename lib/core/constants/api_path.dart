@@ -8,4 +8,6 @@ class ApiPath{
 
   static const String  LOGIN = 'https://freelancer.timviec365.com/api_app/login_candidate.php';
 
+  static const String USER = 'https://mocki.io/v1/d4867d8b-b5d5-4a48-a4ab-79131b5809b8';
+
 }
