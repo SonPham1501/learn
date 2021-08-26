@@ -1,27 +1,24 @@
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:learn/modules/home/bloc/comment_bloc.dart';
-import 'package:learn/modules/home/bloc/comment_event.dart';
-import 'package:learn/routes/app_routes.dart';
+import 'package:learn/config/env_config.dart';
+import 'package:learn/plugin/dio.dart';
+import 'package:learn/plugin/locator.dart';
+import 'package:learn/routes/routes.dart';
 
-void main(){
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setUpLocator();
+  EnvConfig.setEnvironment(Environment.DEV);
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<CommentBloc>(create: (context) => CommentBloc()..add(CommentFetched())),
-      ],
-      child: MaterialApp(
-        title: 'flutter',
-        onGenerateRoute: Routes.onGenerateRoute,
-      ),
+    return MaterialApp(
+      title: 'flutter',
+      navigatorKey: navigationService.navigatorKey,
+      onGenerateRoute: Routes.onGenerateRoute,
     );
   }
 }
