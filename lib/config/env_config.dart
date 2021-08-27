@@ -25,7 +25,7 @@ class Config {
   static const String API_URL = 'API_URL';
 
   static final Map<String, dynamic> debugConstants = {
-    API_URL: 'https://172.0.0.1/',
+    API_URL: 'https://freelancer.timviec365.com/api_app/',
   };
 
   static final Map<String, dynamic> prodConstants = {
