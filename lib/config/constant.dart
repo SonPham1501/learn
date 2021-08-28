@@ -11,4 +11,8 @@ class Constant{
   static bool isShowingDialog = false;
 
   static bool isForceLogin = false;
+
+  static const int GITHUB_API_REFUSED = -4;
+
+  static const int NETWORK_TIMEOUT = -2;
 }
