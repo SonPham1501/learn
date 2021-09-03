@@ -12,10 +12,10 @@ City _$CityFromJson(Map<String, dynamic> json) {
     name: json['name'] as String?,
     id: json['id'] as String?,
     count: json['count'] as String?,
-    countTw: json['city_tw'] as String?,
-    countVl: json['count_vl'] as String?,
+    countTw: json['countTw'] as String?,
+    countVl: json['countVl'] as String?,
     order: json['order'] as String?,
-    postCode: json['post_code'] as String?,
+    postCode: json['postCode'] as String?,
   );
 }
 
@@ -25,7 +25,7 @@ Map<String, dynamic> _$CityToJson(City instance) => <String, dynamic>{
       'order': instance.order,
       'type': instance.type,
       'count': instance.count,
-      'count_vl': instance.countVl,
-      'city_tw': instance.countTw,
-      'post_code': instance.postCode,
+      'countVl': instance.countVl,
+      'countTw': instance.countTw,
+      'postCode': instance.postCode,
     };

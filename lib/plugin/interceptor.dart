@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:learn/config/constant.dart';
 import 'package:learn/models/common/token.dart';
+import 'package:learn/response/response_data.dart';
 import 'package:learn/utils/secure_storage_service.dart';
 import 'package:learn/utils/snackbar_builder.dart';
 import 'package:learn/utils/util.dart';
@@ -20,7 +21,7 @@ class BuildInterceptorsWrapper extends InterceptorsWrapper {
     TokenObj? tokenObj = await SecureStorageService.getTokenObj();
     if (tokenObj != null && tokenObj.accessToken != null && tokenObj.accessToken != '' && options.uri.toString().indexOf('login') == -1) {
       options.headers['access-token'] = tokenObj.accessToken;
-      print(options.headers['access-token']);
+      print('access-token' + options.headers['access-token']);
     }
     dio.interceptors.requestLock.unlock();
   }
@@ -29,7 +30,10 @@ class BuildInterceptorsWrapper extends InterceptorsWrapper {
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     super.onResponse(response, handler);
     print('onResponse');
-    response.data = response.data is String ? json.decode(response.data) : response.data;
+    final map = response.data is String ? json.decode(response.data) : response.data;
+    //ví dụ có form json trả về
+    response.data = ResponseData.fromJson(map);
+    //response.data = map;
   }
 
   @override
