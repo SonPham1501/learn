@@ -4,7 +4,8 @@ class TokenObj {
   String? accessToken;
   String? refreshToken;
 
-  factory TokenObj.fromJson(Map<String, dynamic> json) => TokenObj(accessToken: json['accessToken'], refreshToken: json['refreshToken']);
+  factory TokenObj.fromJson(Map<String, dynamic> json) => TokenObj(
+      accessToken: json['accessToken'], refreshToken: json['refreshToken']);
 
   Map<String, dynamic> toJson() => _$TokenObjToJson(this);
 
