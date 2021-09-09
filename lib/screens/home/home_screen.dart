@@ -11,11 +11,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((_) async{
+    WidgetsBinding.instance!.addPostFrameCallback((_) async {
       await DefaultService().getCities();
     });
   }
@@ -23,18 +22,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                navigationService.navigateTo(RouteName.second);
-              },
-              child: Text('to'),
-            ),
-          ],
-        ),
+      body: Column(
+        children: <Widget>[
+          Text('can you here me'),
+        ],
       ),
     );
   }
