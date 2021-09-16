@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:learn/plugin/dio.dart';
 import 'package:learn/routes/route_name.dart';
 import 'package:learn/services/default_service.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({ Key? key }) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -24,7 +25,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          Text('can you here me'),
+          Text(
+            'fsf',
+            style: TextStyle(),
+          )
         ],
       ),
     );
